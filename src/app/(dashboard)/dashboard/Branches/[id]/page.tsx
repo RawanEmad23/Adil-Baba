@@ -19,7 +19,9 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-const colorOptions = [
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const colorOptions: any = [
   { value: 'red', label: 'Red' },
   { value: 'blue', label: 'Blue' },
   { value: 'black', label: 'Black' },
@@ -47,7 +49,8 @@ const CustomDropdownIndicator = (props) => {
 };
 
 export default function BranchDetailPage() {
-  const [selectedColors, setSelectedColors] = useState([]);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [selectedColors, setSelectedColors] = useState<any>([]);
 
   const customStyles = {
     control: (provided) => ({

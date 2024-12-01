@@ -6,8 +6,6 @@ import { FaSearch } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import date from "../../../../imgs/image (31).png";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 const products = [
   {
@@ -37,7 +35,6 @@ const products = [
 ];
 
 export default function Orders() {
-  const [startDate, setStartDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
 
   const handleImageClick = () => {
@@ -69,16 +66,7 @@ export default function Orders() {
               />
               {showCalendar && (
                 <div className="absolute top-12 z-10 bg-white border rounded-lg shadow-lg">
-                  <DatePicker
-                    selected={startDate}
-                    onChange={(date) => setStartDate(date)}
-                    calendarClassName="rounded-lg"
-                    dayClassName={(date) =>
-                      date.getDate() === startDate.getDate()
-                        ? "bg-orange-400 text-white"
-                        : "text-gray-800"
-                    }
-                  />
+                  
                 </div>
               )}
             </div>
@@ -91,13 +79,13 @@ export default function Orders() {
             <thead>
               <tr className="border-b bg-gray-100">
                 <th
-                  colSpan="3"
+                  colSpan={3}
                   className="py-4 text-orange-500 font-semibold relative"
                 >
                   Company Orders
                   <span className="absolute bottom-0 left-0 w-full h-1 bg-orange-500" />
                 </th>
-                <th colSpan="3" className="py-4 text-gray-500 font-semibold">
+                <th colSpan={3} className="py-4 text-gray-500 font-semibold">
                   Vendor’s Orders
                 </th>
               </tr>

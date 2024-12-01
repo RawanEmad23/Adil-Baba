@@ -54,7 +54,7 @@ export default function Component() {
               left: 8,
               right: 8,
             }}
-            width={window.innerWidth - 50} // جعل العرض ديناميكياً
+            width={typeof window != "undefined" ? window.innerWidth - 50 : 50} // جعل العرض ديناميكياً
             // height={200} // ارتفاع مناسب مع العرض
           >
             <CartesianGrid vertical={false} />

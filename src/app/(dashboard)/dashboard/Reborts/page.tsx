@@ -7,8 +7,6 @@ import { Bar, Doughnut, Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, LineElement, PointElement, Title, Tooltip, Legend, ArcElement } from "chart.js";
 import Image from "next/image";
 import date from '../../../../imgs/image (31).png';
-import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
 
 // تسجيل وحدات Chart.js
 ChartJS.register(
@@ -63,8 +61,8 @@ const barData = {
     },
   ],
 };
-
-const options = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const options:any = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
@@ -81,13 +79,9 @@ const products = [
 ];
 
 function Reports() {
-  const [startDate, setStartDate] = useState(new Date()); 
   const [calendarOpen, setCalendarOpen] = useState(false); 
 
-  const handleSubmit = () => {
-    console.log("Submit clicked. Selected Date:", startDate);
-    setCalendarOpen(false);
-  };
+  
 
   return (
     <div>
@@ -111,27 +105,7 @@ function Reports() {
             onClick={() => setCalendarOpen(!calendarOpen)} 
           />
 
-          <DatePicker
-            selected={startDate}
-            onChange={(date: Date) => setStartDate(date)}
-            dateFormat="MMMM d, yyyy"
-            placeholderText="Select a date"
-            open={calendarOpen} 
-            onClickOutside={() => setCalendarOpen(false)} 
-            renderCustomHeader={({ date, decreaseMonth, increaseMonth }) => (
-              <div className="flex justify-between items-center">
-                <button onClick={decreaseMonth} className="text-gray-500 hover:text-gray-800">&lt;</button>
-                <span className="font-semibold">
-                  {date.toLocaleString("en-US", { month: "long", year: "numeric" })}
-                </span>
-                <button onClick={increaseMonth} className="text-gray-500 hover:text-gray-800">&gt;</button>
-                <button onClick={handleSubmit} className="bg-blue-500 text-white px-4 py-2 rounded ml-4">
-                  Submit
-                </button>
-              </div>
-            )}
-            className="p-2 border rounded hidden "
-          />
+          
         </div>
       </div>
 

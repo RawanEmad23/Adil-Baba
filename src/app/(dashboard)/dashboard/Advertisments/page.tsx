@@ -5,8 +5,6 @@ import { FaSearch } from 'react-icons/fa';
 import { Input } from '@/components/ui/input'; // تأكد من أن لديك مكون Input في المشروع
 import Image from "next/image";
 import date from '../../../../imgs/image (31).png'; // تأكد من مسار الصورة
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -50,8 +48,9 @@ const barData = {
   ],
 };
 
-// الخيارات
-const options = {
+// الخيارات 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const options : any= {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
@@ -68,13 +67,9 @@ const products = [
 ];
 
 function Advertisements() {
-  const [startDate, setStartDate] = useState(new Date());
   const [calendarOpen, setCalendarOpen] = useState(false);
 
-  const handleSubmit = () => {
-    console.log("Submit clicked", startDate);
-    setCalendarOpen(false);
-  };
+ 
 
   return (
     <div>
@@ -98,26 +93,7 @@ function Advertisements() {
             onClick={() => setCalendarOpen(!calendarOpen)}
           />
 
-          <DatePicker
-            selected={startDate}
-            onChange={(date: Date) => setStartDate(date)}
-            dateFormat="MMMM d, yyyy"
-            placeholderText="Select a date"
-            customInput={<Input />}
-            open={calendarOpen}
-            onClickOutside={() => setCalendarOpen(false)}
-            className="p-2 border rounded hidden"
-            renderCustomFooter={() => (
-              <div className="text-center mt-4">
-                <button
-                  onClick={handleSubmit}
-                  className="bg-blue-500 text-white px-4 py-2 rounded"
-                >
-                  Submit
-                </button>
-              </div>
-            )}
-          />
+         
 
 <div className="w-[136px] h-[40px] bg-[#f3b852] rounded-2xl text-white font-bold flex justify-center items-center">
                   + New Branches
