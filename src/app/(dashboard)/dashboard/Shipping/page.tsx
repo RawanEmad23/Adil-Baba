@@ -1,8 +1,7 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Image from 'next/image';
-import Management from '../../../../imgs/d1fe0874d42913e4c9351017f1c6c707.png';
 import { FaSearch } from 'react-icons/fa';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
@@ -29,7 +28,8 @@ const products = [
 ];
 
 export default function ProductsInventory() {
-  const router = useRouter();  // نقل useRouter إلى داخل دالة المكون
+  const router = useRouter();
+  const [calendarOpen, setCalendarOpen] = useState(false); // إضافة حالة لتقويم التاريخ
 
   const handleEyeClick = (id: number) => {
     router.push(`/dashboard/Management/${id}`);
@@ -38,28 +38,29 @@ export default function ProductsInventory() {
   return (
     <div className="p-4 bg-gray-100 min-h-screen">
       <div className="container mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-semibold">Shipping</h1>
+      <div className="flex justify-between items-center mb-8 flex-col sm:flex-row">
+  <h1 className="text-2xl font-semibold">Shipping</h1>
 
-          <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
-       
-            <div className="relative w-full sm:w-[140px] lg:w-64">
-              <Input
-                placeholder="Search product name"
-                className="pl-10 border-[#eeeeee] bg-white border-2 rounded-full focus:outline-none py-3"
-              />
-              <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888888]" />
-            </div>
-            <Image
-            width={60}
-            height={30}
-            className="rounded cursor-pointer"
-            src={date}
-            alt="Date"
-            onClick={() => setCalendarOpen(!calendarOpen)}
-          />
-          </div>
-        </div>
+  <div className="flex flex-col sm:flex-row gap-4 sm:items-center w-full sm:w-auto">
+    <div className="relative w-full sm:w-[140px] lg:w-64">
+      <Input
+        placeholder="Search product name"
+        className="pl-10 border-[#eeeeee] bg-white border-2 rounded-full focus:outline-none py-3"
+      />
+      <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888888]" />
+    </div>
+
+    <Image
+      width={60}
+      height={30}
+      className="rounded cursor-pointer"
+      src={date}
+      alt="Date"
+      onClick={() => setCalendarOpen(!calendarOpen)} // Toggle لحالة التقويم
+    />
+  </div>
+</div>
+
 
         <div className="overflow-x-auto bg-white shadow-md rounded-lg">
           <table className="min-w-full border border-gray-200 text-center">

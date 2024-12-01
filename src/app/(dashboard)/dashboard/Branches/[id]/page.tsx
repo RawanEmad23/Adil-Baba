@@ -98,7 +98,7 @@ export default function BranchDetailPage() {
   ];
 
   return (
-    <div>
+    <div className='mt-16'>
         <div className='flex justify-between mb-8'>
             <div>
                 <h1 className="text-2xl font-semibold mb-4">Cairo Branch</h1>

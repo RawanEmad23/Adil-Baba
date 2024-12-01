@@ -1,83 +1,82 @@
 "use client";
 
-import React, { useState } from 'react';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import { FaSearch } from 'react-icons/fa';
-import { Input } from '@/components/ui/input';
-import Image from 'next/image';
-import date from '../../../../imgs/image (31).png';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'
+import React, { useState } from "react";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { FaSearch } from "react-icons/fa";
+import { Input } from "@/components/ui/input";
+import Image from "next/image";
+import date from "../../../../imgs/image (31).png";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const products = [
   {
     id: 1,
     ordernom: 25182,
-    date: '31 July 2024',
-    clientName: 'Mohamed Ahmed',
+    date: "31 July 2024",
+    clientName: "Mohamed Ahmed",
     price: 300.0,
-    status: 'Cancelled',
+    status: "Cancelled",
   },
   {
     id: 2,
     ordernom: 28197,
-    date: '31 July 2024',
-    clientName: 'Ahmed Yasser',
+    date: "31 July 2024",
+    clientName: "Ahmed Yasser",
     price: 300.0,
-    status: 'Completed',
+    status: "Completed",
   },
   {
     id: 3,
     ordernom: 17922,
-    date: '31 July 2024',
-    clientName: 'Omar Ehab',
+    date: "31 July 2024",
+    clientName: "Omar Ehab",
     price: 300.0,
-    status: 'Processing',
+    status: "Processing",
   },
 ];
 
 export default function Orders() {
-  // حالة لعرض التقويم
   const [startDate, setStartDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
 
   const handleImageClick = () => {
-    setShowCalendar(!showCalendar); 
+    setShowCalendar(!showCalendar);
   };
 
   return (
-    <div className="p-4 bg-gray-100 min-h-screen">
+    <div className="p-6 bg-gray-50 min-h-screen">
       <div className="container mx-auto">
-        <div className="flex justify-between mb-8">
-          <div>
-            <h1 className="text-2xl font-semibold mb-4 text-center">Orders</h1>
-          </div>
-          <div className="flex gap-48">
-            <div className="relative w-64">
+        {/* Header Section */}
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-800">Orders</h1>
+          <div className="flex items-center gap-8">
+            <div className="relative">
               <Input
-                placeholder="Search product name"
-                className="pl-10 border-[#eeeeee] bg-white border-2 rounded-full focus:outline-none py-5"
+                placeholder="Search by product name"
+                className="pl-10 border border-gray-300 bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-orange-400 py-2.5 w-64"
               />
-              <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888888]" />
+              <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500" />
             </div>
-            <div className="flex items-center space-x-2 relative">
-              <div
+            <div className="relative">
+              <Image
+                src={date}
+                alt="calendar icon"
+                width={40}
+                height={40}
                 className="cursor-pointer"
                 onClick={handleImageClick}
-              >
-                <Image src={date} alt="calendar icon" width={70} height={20} />
-              </div>
-
+              />
               {showCalendar && (
-                <div className="absolute top-10 right-[20px] mt-2 z-10">
+                <div className="absolute top-12 z-10 bg-white border rounded-lg shadow-lg">
                   <DatePicker
                     selected={startDate}
-                    onChange={(date: Date) => setStartDate(date)}
-                    calendarClassName="bg-white border border-gray-300 rounded-lg shadow-lg p-4 mt-2"
+                    onChange={(date) => setStartDate(date)}
+                    calendarClassName="rounded-lg"
                     dayClassName={(date) =>
                       date.getDate() === startDate.getDate()
-                        ? 'bg-orange-500 text-white'
-                        : 'text-black'
+                        ? "bg-orange-400 text-white"
+                        : "text-gray-800"
                     }
                   />
                 </div>
@@ -86,61 +85,58 @@ export default function Orders() {
           </div>
         </div>
 
+        {/* Table Section */}
         <div className="overflow-x-auto bg-white shadow-md rounded-lg">
-          <table className="min-w-full border border-gray-200">
-            <thead className=" flex text-center">
-              <tr className="border-b">
+          <table className="min-w-full border border-gray-200 text-center">
+            <thead>
+              <tr className="border-b bg-gray-100">
                 <th
                   colSpan="3"
-                  className="text-[#f3b852] font-medium py-2 relative text-center"
+                  className="py-4 text-orange-500 font-semibold relative"
                 >
                   Company Orders
-                  <span
-                    className="absolute bottom-1 left-0 w-full h-[2px] bg-[#f3b852]"
-                    style={{ transform: 'translateY(4px)' }}
-                  />
+                  <span className="absolute bottom-0 left-0 w-full h-1 bg-orange-500" />
                 </th>
-                <th colSpan="3" className="text-[#bababa] font-medium py-2 text-center">
+                <th colSpan="3" className="py-4 text-gray-500 font-semibold">
                   Vendor’s Orders
                 </th>
               </tr>
-              <tr className="border-b">
-                <th className="py-2 px-4 text-center text-black font-bold">Order No.</th>
-                <th className="py-2 px-4 text-center text-black font-bold">Date</th>
-                <th className="py-2 px-4 text-center text-black font-bold">Client Name</th>
-                <th className="py-2 px-4 text-center text-black font-bold">Total Amount</th>
-                <th className="py-2 px-4 text-center text-black font-bold">Status</th>
-                <th className="py-2 px-4 text-center text-black font-bold">Action</th>
+              <tr className="border-b bg-gray-50">
+                <th className="py-2 px-4 font-bold text-gray-700">Order No.</th>
+                <th className="py-2 px-4 font-bold text-gray-700">Date</th>
+                <th className="py-2 px-4 font-bold text-gray-700">Client Name</th>
+                <th className="py-2 px-4 font-bold text-gray-700">Total Amount</th>
+                <th className="py-2 px-4 font-bold text-gray-700">Status</th>
+                <th className="py-2 px-4 font-bold text-gray-700">Action</th>
               </tr>
             </thead>
-            <tbody className="font-thin text-center">
+            <tbody>
               {products.map((product) => (
-                <tr key={product.id} className="border-b">
-                  <td className="py-2 px-4">{product.ordernom}</td>
-                  <td className="py-2 px-4">{product.date}</td>
-                  <td className="py-2 px-4">{product.clientName}</td>
-                  <td className="py-2 px-4">${product.price.toFixed(2)}</td>
-                  <td className="py-2 px-4">
+                <tr key={product.id} className="border-b hover:bg-gray-50">
+                  <td className="py-4 px-4">{product.ordernom}</td>
+                  <td className="py-4 px-4">{product.date}</td>
+                  <td className="py-4 px-4">{product.clientName}</td>
+                  <td className="py-4 px-4">${product.price.toFixed(2)}</td>
+                  <td className="py-4 px-4">
                     <span
-                      className={`px-3 py-2 rounded-lg font-semibold text-white ${
-                        product.status === 'Cancelled'
-                          ? 'bg-[#ffaeb0]'
-                          : product.status === 'Completed'
-                          ? 'bg-[#92fba2]'
-                          : 'bg-[#feeec8]'
+                      className={`px-3 py-1 rounded-full text-sm font-medium text-white ${
+                        product.status === "Cancelled"
+                          ? "bg-red-400"
+                          : product.status === "Completed"
+                          ? "bg-green-400"
+                          : "bg-yellow-300"
                       }`}
                     >
                       {product.status}
                     </span>
                   </td>
-                  <td className="py-2 px-4">
-                    <div className="w-[94.67px] h-[28px] border-2 border-[#eeeeee] rounded-lg flex items-center justify-center space-x-2">
-                      <button>
-                        <i className="fa-solid fa-download text-[#9a9898]"></i>
+                  <td className="py-4 px-4">
+                    <div className="flex items-center justify-center gap-2">
+                      <button className="p-2 bg-gray-100 rounded hover:bg-gray-200">
+                        <i className="fa-solid fa-download text-gray-600"></i>
                       </button>
-                      <div className="w-px h-5 bg-[#9a9898]"></div>
-                      <button>
-                        <i className="fa-solid fa-eye text-[#292d32]"></i>
+                      <button className="p-2 bg-gray-100 rounded hover:bg-gray-200">
+                        <i className="fa-solid fa-eye text-gray-800"></i>
                       </button>
                     </div>
                   </td>
@@ -149,12 +145,18 @@ export default function Orders() {
             </tbody>
           </table>
 
-          <div className="flex justify-between items-center py-4 px-6">
-            <span>Showing 10 from 46 data</span>
-            <div className="flex items-center space-x-2">
-              <button className="px-3 py-1 border rounded-lg">1</button>
-              <button className="px-3 py-1 border rounded-lg">2</button>
-              <button className="px-3 py-1 border rounded-lg">3</button>
+          {/* Pagination */}
+          <div className="flex justify-between items-center py-4 px-6 bg-gray-50">
+            <span className="text-gray-600">Showing 10 from 46 data</span>
+            <div className="flex gap-2">
+              {[1, 2, 3].map((page) => (
+                <button
+                  key={page}
+                  className="px-3 py-1 border rounded-full hover:bg-orange-400 hover:text-white transition"
+                >
+                  {page}
+                </button>
+              ))}
             </div>
           </div>
         </div>

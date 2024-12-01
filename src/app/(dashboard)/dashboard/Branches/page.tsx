@@ -77,7 +77,7 @@ export default function Branches() {
   };
 
   return (
-    <div className="p-4 bg-gray-100 min-h-screen">
+    <div className="p-4 bg-gray-100 min-h-screen mt-16">
       <div className="container mx-auto">
         <div className="flex justify-between mb-8">
           <h1 className="text-2xl font-semibold">Branches</h1>

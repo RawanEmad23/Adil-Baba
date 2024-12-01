@@ -33,9 +33,9 @@ const EmailSection = () => {
   ];
 
   return (
-    <div className="flex bg-gray-100 gap-8 min-h-screen p-8">
+    <div className="flex flex-col md:flex-row bg-gray-100 gap-8 min-h-screen p-8">
      
-      <div className="border-r shadow-md rounded-md px-4 py-3 w-[15rem] bg-white h-[25rem] flex flex-col">
+      <div className="border-r  rounded-md px-4 py-3 w-full md:w-[15rem] bg-white h-[25rem] flex flex-col">
         <Dialog>
           <DialogTrigger>
             <button className="w-full sm:w-[136px] h-[40px] bg-[#f3b852] rounded-2xl text-white font-bold flex justify-center items-center">
@@ -171,7 +171,7 @@ const EmailSection = () => {
                 <span className="text-yellow-500 text-lg">★</span>
                 <div>
                   <p className="font-bold text-gray-700">Omar Ahmed</p>
-                  <p className="text-sm text-gray-500 truncate max-w-md">
+                  <p className="text-sm text-gray-500 truncate max-w-md text-wrap">
                     We are thrilled to announce the launch of our latest products
                   </p>
                 </div>

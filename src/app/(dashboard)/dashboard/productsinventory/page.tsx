@@ -4,6 +4,15 @@ import Image from 'next/image';
 import Management from '../../../../imgs/d1fe0874d42913e4c9351017f1c6c707.png';
 import { FaSearch } from 'react-icons/fa';
 import { Input } from '@/components/ui/input';
+import { Button } from "@/components/ui/button";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
 
 const products = [
   {
@@ -88,20 +97,59 @@ export default function ProductsInventory() {
     <div className="p-4 bg-gray-100 min-h-screen">
       <div className="container mx-auto">
        
-        <div className="flex flex-col md:flex-row justify-between mb-8 gap-4">
-          <h1 className="text-2xl font-semibold">Products</h1>
-          <div className="flex flex-col sm:flex-row gap-4 items-center">
-          <div className="relative w-full sm:w-[140px] lg:w-64">
-  <Input
-    placeholder="Search product name"
-    className="pl-10 border-[#eeeeee] bg-white border-2 rounded-full focus:outline-none py-2 w-full"
-  />
-  <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888888]" />
-</div>
-
-            <button className="w-full sm:w-[136px] h-[40px] bg-[#f3b852] rounded-2xl text-white font-bold flex justify-center items-center">
-              + New Product
-            </button>
+      <div className="flex justify-between mb-8">
+          <h1 className="text-2xl font-semibold">Branches</h1>
+          <div className="flex gap-8">
+            <div className="relative w-64">
+              <Input
+                placeholder="Search product name"
+                className="pl-10 border-[#eeeeee] bg-white border-2 rounded-full focus:outline-none py-5"
+              />
+              <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888888]" />
+            </div>
+            <Dialog>
+              <DialogTrigger>
+                <div className="w-[136px] h-[40px] bg-[#f3b852] rounded-2xl text-white font-bold flex justify-center items-center">
+                  + New Branches
+                </div>
+              </DialogTrigger>
+              <DialogContent className=''>
+                <DialogHeader>
+                  <DialogTitle className="flex items-center justify-center mb-10">Add New Branch</DialogTitle>
+                  <DialogDescription>
+                    <form>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="mb-5">
+                          <label htmlFor="branchName1" className="text-black">Branch Name</label>
+                          <Input id="branchName1" className="rounded-2xl py-6 mt-2" />
+                        </div>
+                        <div className="mb-5">
+                          <label htmlFor="Manager" className="text-black">Manager</label>
+                          <Input id="Manager" className="rounded-2xl py-6 mt-2" />
+                        </div>
+                        <div className="mb-5">
+                          <label htmlFor="EmployeeNo" className="text-black">Employee No.</label>
+                          <Input id="EmployeeNo" className="rounded-2xl py-6 mt-2" />
+                        </div>
+                        <div className="mb-5">
+                          <label htmlFor="TotalProducts" className="text-black">Total Products</label>
+                          <Input id="TotalProducts" className="rounded-2xl py-6 mt-2" />
+                        </div>
+                      </div>
+                      <div className="mb-9">
+                        <label htmlFor="Location" className="text-black">Location</label>
+                        <Input id="Location" className="rounded-2xl py-6 mt-2" />
+                      </div>
+                      <div className="mt-4 mb-5 flex items-center justify-center">
+                        <Button variant="outline" className="bg-[#f3b852] text-white py-5 px-16 rounded-lg">
+                          Add Branch
+                        </Button>
+                      </div>
+                    </form>
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
 

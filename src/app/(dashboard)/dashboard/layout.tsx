@@ -17,12 +17,12 @@ import Dashboard from "../../../imgs/image (20).png";
 import { FaSearch } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 export default function Layout({ children }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [isCommunicationOpen, setCommunicationOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("dashboard"); 
+  const [activeTab, setActiveTab] = useState("dashboard");
+  const [isCommunicationOpen, setCommunicationOpen] = useState(false); // Added state for communication dropdown
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,7 +43,6 @@ export default function Layout({ children }) {
 
   return (
     <SidebarProvider>
-   
       <header className="w-full fixed top-0 left-0 bg-white z-30 flex items-center justify-between p-4 shadow-md">
         <div className="flex items-center">
           <Image src={logo} alt="Logo" width={140} height={40} />
@@ -60,25 +59,32 @@ export default function Layout({ children }) {
         <div className="flex items-center md:gap-6">
           <Image src={notificationIcon} alt="Notification" width={30} height={30} />
           <div className="flex items-center">
-            <div className="size-7 md:size-10 bg-slate-600 rounded-full"></div>
+            <div className="w-7 h-7 bg-slate-600 rounded-full"></div>
             <h2 className="ml-2 hidden md:block">Rawan</h2>
           </div>
         </div>
       </header>
 
-      
       <div className="flex w-full h-screen pt-16 bg-gray-100">
-        <button
-          onClick={() => setSidebarOpen(!isSidebarOpen)}
-          className="fixed top-20 left-4 z-20 p-2 bg-gray-100 rounded-full shadow-md lg:hidden"
-        >
-          <AiOutlineMenu size={24} />
-        </button>
+        {!isSidebarOpen && (
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="fixed top-20 left-4 z-20 p-2 bg-gray-100 rounded-full shadow-md"
+          >
+            <AiOutlineMenu size={24} />
+          </button>
+        )}
 
-     
         {isSidebarOpen && (
           <aside className="w-64 h-full bg-white fixed top-16 left-0 flex flex-col p-4 z-30 shadow-lg space-y-4">
-            
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="self-end mb-4 p-2 bg-gray-200 rounded-full hover:bg-gray-300"
+              aria-label="Close Sidebar"
+            >
+              <AiOutlineClose size={20} />
+            </button>
+
             <div
               className={`flex items-center h-10 space-x-2 bg-[#feeec8] mb-5 px-4 py-2 rounded-md ${
                 activeTab === "dashboard" ? "text-orange-500 font-bold" : ""
@@ -163,48 +169,41 @@ export default function Layout({ children }) {
               </Link>
             </div>
 
-        
-            <div>
-              <div
-                className="flex items-center pb-5 space-x-2 cursor-pointer"
-                onClick={() => setCommunicationOpen(!isCommunicationOpen)}
-              >
-                <Image src={Communication} alt="Logo" className="w-6 h-6" />
+            <div
+              className={`flex items-center pb-5 space-x-2 ${
+                activeTab === "communication" ? "text-orange-500 font-bold" : ""
+              }`}
+              onClick={() => {
+                setActiveTab("communication");
+                setCommunicationOpen(!isCommunicationOpen); // Toggle the communication dropdown
+              }}
+            >
+              <Image src={Communication} alt="Logo" className="w-6 h-6" />
+              
                 <button className="text-left">Communication</button>
-              </div>
-              {isCommunicationOpen && (
-                <div className="ml-8 space-y-2 flex flex-col">
-                  <Link href="/dashboard/Communication/Email ">
-                    <button
-                      className={`text-left ${
-                        activeTab === "Email " ? "text-orange-500 font-bold" : ""
-                      }`}
-                      onClick={() => setActiveTab("Email ")}
-                    >
-                      Email 
-                    </button>
-                  </Link>
-                  <Link href="/dashboard/Communication/Chat">
-                    <button
-                      className={`text-left ${
-                        activeTab === "Chat" ? "text-orange-500 font-bold" : ""
-                      }`}
-                      onClick={() => setActiveTab("Chat")}
-                    >
-                      Chat
-                    </button>
-                  </Link>
-                </div>
-              )}
+          
             </div>
 
-            <div className="flex items-center space-x-2">
+            {/* Conditionally render Chat and Email */}
+            {isCommunicationOpen && (
+              <div className="pl-8">
+                  <Link href="/dashboard/Communication/Email">
+                  <div className="text-left">Email</div>
+              </Link>
+                <div className="text-left">Chat</div>
+            
+              </div>
+            )}
+
+            <div
+              className={`flex items-center pb-5 space-x-2 ${
+                activeTab === "shipping" ? "text-orange-500 font-bold" : ""
+              }`}
+              onClick={() => setActiveTab("shipping")}
+            >
               <Image src={Shipping} alt="Logo" className="w-6 h-6" />
-                <Link href="/dashboard/Shipping">
-                <button  className={`text-left ${
-                        activeTab === "Shipping" ? "text-orange-500 font-bold" : ""
-                      }`}  
-                        onClick={() => setActiveTab("Shipping")}>Shipping</button>
+              <Link href="/dashboard/Shipping">
+                <button className="text-left">Shipping</button>
               </Link>
             </div>
           </aside>
