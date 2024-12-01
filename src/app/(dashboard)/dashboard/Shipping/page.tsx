@@ -4,7 +4,6 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Image from 'next/image';
 import { FaSearch } from 'react-icons/fa';
 import { Input } from '@/components/ui/input';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import date from '../../../../imgs/image (31).png'; 
 

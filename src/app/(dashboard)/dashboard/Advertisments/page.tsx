@@ -7,7 +7,7 @@ import Image from "next/image";
 import date from '../../../../imgs/image (31).png'; // تأكد من مسار الصورة
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Bar, Doughnut } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -21,7 +21,6 @@ import {
 
 import Pie  from "@/components/Pie Chart - Donut with-Text"
 
-import barchart from "@/components/Bar-Chart"
 
 ChartJS.register(
   CategoryScale,
@@ -33,17 +32,6 @@ ChartJS.register(
   Legend
 );
 
-// بيانات الدونات
-const doughnutDataFiltered = {
-  labels: ["Shipped", "Processing"],
-  datasets: [
-    {
-      data: [55, 35],
-      backgroundColor: ["#A3D6C1", "#F9DCA8"],
-      hoverBackgroundColor: ["#8FCBB0", "#EAC694"],
-    },
-  ],
-};
 
 // بيانات البار
 const barData = {

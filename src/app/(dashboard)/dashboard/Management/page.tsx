@@ -1,8 +1,7 @@
 "use client";
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Image from 'next/image';
-import Management from '../../../../imgs/d1fe0874d42913e4c9351017f1c6c707.png';
+
 import { FaSearch } from 'react-icons/fa';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
