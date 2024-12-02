@@ -12,7 +12,7 @@ import AreaChart from "@/components/AreaChart"
 
 export default function Page() {
   return (
-    <div className='space-y-6 px-4 w-full py-20'>
+    <div className='space-y-6  w-full '>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {[...Array(4)].map((_, index) => (
           <div key={index} className='flex items-center gap-5 rounded-lg h-[80px] bg-white p-4 shadow-md'>

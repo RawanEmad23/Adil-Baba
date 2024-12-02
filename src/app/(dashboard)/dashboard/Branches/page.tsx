@@ -14,7 +14,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-
+import Link from 'next/link';
 const products = [
   {
     id: 1,
@@ -79,61 +79,26 @@ export default function Branches() {
   return (
     <div className="p-4 bg-gray-100 min-h-screen mt-16">
       <div className="container mx-auto">
-        <div className="flex justify-between mb-8">
-          <h1 className="text-2xl font-semibold">Branches</h1>
-          <div className="flex gap-8">
-            <div className="relative w-64">
-              <Input
-                placeholder="Search product name"
-                className="pl-10 border-[#eeeeee] bg-white border-2 rounded-full focus:outline-none py-5"
-              />
-              <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888888]" />
-            </div>
-            <Dialog>
-              <DialogTrigger>
-                <div className="w-[136px] h-[40px] bg-[#f3b852] rounded-2xl text-white font-bold flex justify-center items-center">
-                  + New Branches
-                </div>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle className="flex items-center justify-center mb-10">Add New Branch</DialogTitle>
-                  <DialogDescription>
-                    <form>
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="mb-5">
-                          <label htmlFor="branchName1" className="text-black">Branch Name</label>
-                          <Input id="branchName1" className="rounded-2xl py-6 mt-2" />
-                        </div>
-                        <div className="mb-5">
-                          <label htmlFor="Manager" className="text-black">Manager</label>
-                          <Input id="Manager" className="rounded-2xl py-6 mt-2" />
-                        </div>
-                        <div className="mb-5">
-                          <label htmlFor="EmployeeNo" className="text-black">Employee No.</label>
-                          <Input id="EmployeeNo" className="rounded-2xl py-6 mt-2" />
-                        </div>
-                        <div className="mb-5">
-                          <label htmlFor="TotalProducts" className="text-black">Total Products</label>
-                          <Input id="TotalProducts" className="rounded-2xl py-6 mt-2" />
-                        </div>
-                      </div>
-                      <div className="mb-9">
-                        <label htmlFor="Location" className="text-black">Location</label>
-                        <Input id="Location" className="rounded-2xl py-6 mt-2" />
-                      </div>
-                      <div className="mt-4 mb-5 flex items-center justify-center">
-                        <Button variant="outline" className="bg-[#f3b852] text-white py-5 px-16 rounded-lg">
-                          Add Branch
-                        </Button>
-                      </div>
-                    </form>
-                  </DialogDescription>
-                </DialogHeader>
-              </DialogContent>
-            </Dialog>
-          </div>
-        </div>
+      
+        <div className="flex justify-between items-center mb-8 flex-col sm:flex-row">
+  <h1 className="text-2xl font-semibold">Branches</h1>
+
+  <div className="flex flex-col sm:flex-row gap-4 sm:items-center w-full sm:w-auto">
+    <div className="relative w-full sm:w-[140px] lg:w-64">
+      <Input
+        placeholder="Search product name"
+        className="pl-10 border-[#eeeeee] bg-white border-2 rounded-full focus:outline-none py-3"
+      />
+      <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888888]" />
+    </div>
+    <Link href='/dashboard/Management/add'>
+              <button className="w-full sm:w-[136px] h-[40px] bg-[#f3b852] rounded-2xl text-white font-bold flex justify-center items-center">
+                + New Branches
+              </button>
+            </Link>
+
+  </div>
+</div>
         <div className="overflow-x-auto bg-white shadow-md rounded-lg">
           <table className="min-w-full border border-gray-200">
             <thead className="text-center">

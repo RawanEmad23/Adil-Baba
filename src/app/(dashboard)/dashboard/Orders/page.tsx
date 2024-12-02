@@ -6,7 +6,7 @@ import { FaSearch } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import date from "../../../../imgs/image (31).png";
-
+import Link from 'next/link';
 const products = [
   {
     id: 1,
@@ -44,36 +44,27 @@ export default function Orders() {
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
       <div className="container mx-auto">
-        {/* Header Section */}
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Orders</h1>
-          <div className="flex items-center gap-8">
-            <div className="relative">
-              <Input
-                placeholder="Search by product name"
-                className="pl-10 border border-gray-300 bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-orange-400 py-2.5 w-64"
-              />
-              <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500" />
-            </div>
-            <div className="relative">
-              <Image
-                src={date}
-                alt="calendar icon"
-                width={40}
-                height={40}
-                className="cursor-pointer"
-                onClick={handleImageClick}
-              />
-              {showCalendar && (
-                <div className="absolute top-12 z-10 bg-white border rounded-lg shadow-lg">
-                  
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+     
+      <div className="flex justify-between items-center mb-8 flex-col sm:flex-row">
+  <h1 className="text-2xl font-semibold">Products Inventory</h1>
 
-        {/* Table Section */}
+  <div className="flex flex-col sm:flex-row gap-4 sm:items-center w-full sm:w-auto">
+    <div className="relative w-full sm:w-[140px] lg:w-64">
+      <Input
+        placeholder="Search product name"
+        className="pl-10 border-[#eeeeee] bg-white border-2 rounded-full focus:outline-none py-3"
+      />
+      <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888888]" />
+    </div>
+    <Link href='/dashboard/Management/add'>
+              <button className="w-full sm:w-[136px] h-[40px] bg-[#f3b852] rounded-2xl text-white font-bold flex justify-center items-center">
+                + New Admin
+              </button>
+            </Link>
+
+  </div>
+</div>
+
         <div className="overflow-x-auto bg-white shadow-md rounded-lg">
           <table className="min-w-full border border-gray-200 text-center">
             <thead>
@@ -133,7 +124,7 @@ export default function Orders() {
             </tbody>
           </table>
 
-          {/* Pagination */}
+       
           <div className="flex justify-between items-center py-4 px-6 bg-gray-50">
             <span className="text-gray-600">Showing 10 from 46 data</span>
             <div className="flex gap-2">

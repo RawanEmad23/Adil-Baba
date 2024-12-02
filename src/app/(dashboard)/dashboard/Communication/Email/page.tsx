@@ -32,7 +32,7 @@ const EmailSection = () => {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row bg-gray-100 gap-8 min-h-screen p-8">
+    <div className="flex flex-col md:flex-row bg-gray-100 gap-8 min-h-screen p-4">
      
       <div className="border-r  rounded-md px-4 py-3 w-full md:w-[15rem] bg-white h-[25rem] flex flex-col">
         <Dialog>

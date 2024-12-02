@@ -12,7 +12,7 @@ export default function Page() {
         <h1 className="text-2xl font-bold">Add New Admin</h1>
       </div>
 
-      <div className="bg-gray-100 p-8 w-full">
+      <div className="bg-gray-100 p-4 w-full">
         <div className="bg-white p-8 rounded-lg shadow-lg w-full mx-auto">
           <form>
             <div className="grid grid-cols-2 gap-6 mb-5">

@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input'; // تأكد من أن لديك م
 import Image from "next/image";
 import date from '../../../../imgs/image (31).png'; // تأكد من مسار الصورة
 import { Bar } from "react-chartjs-2";
+import Link from 'next/link';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -73,33 +74,29 @@ function Advertisements() {
 
   return (
     <div>
-      <div className="flex justify-around mb-8">
-        <h1 className="text-2xl font-semibold">Advertisements</h1>
-        <div className="flex">
-          <div className="relative w-64">
-            <Input
-              placeholder="Search product name"
-              className="pl-10 border-[#eeeeee] bg-white border-2 rounded-full focus:outline-none py-5"
-            />
-            <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888888]" />
-          </div>
+     
+ 
 
-          <Image
-            width={60}
-            height={30}
-            className="rounded cursor-pointer"
-            src={date}
-            alt="Date"
-            onClick={() => setCalendarOpen(!calendarOpen)}
-          />
 
-         
+<div className="flex justify-between items-center mb-8 flex-col sm:flex-row">
+  <h1 className="text-2xl font-semibold">Advertisements</h1>
 
-<div className="w-[136px] h-[40px] bg-[#f3b852] rounded-2xl text-white font-bold flex justify-center items-center">
-                  + New Branches
-                </div>
-        </div>
-      </div>
+  <div className="flex flex-col sm:flex-row gap-4 sm:items-center w-full sm:w-auto">
+    <div className="relative w-full sm:w-[140px] lg:w-64">
+      <Input
+        placeholder="Search product name"
+        className="pl-10 border-[#eeeeee] bg-white border-2 rounded-full focus:outline-none py-3"
+      />
+      <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888888]" />
+    </div>
+    <Link href='/dashboard/Management/add'>
+              <button className="w-full sm:w-[136px] h-[40px] bg-[#f3b852] rounded-2xl text-white font-bold flex justify-center items-center">
+                + New Admin
+              </button>
+            </Link>
+
+  </div>
+</div>
 
       <div className="flex flex-col gap-6 p-4 bg-gray-100 min-h-screen">
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6">
