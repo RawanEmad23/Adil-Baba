@@ -1,10 +1,10 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { ReactNode, Suspense } from "react";
 import SubHeader from "@/components/layouts/SubHeader";
 import Sidebar from "./_components/sidebar";
 
-export default function Layout({ children }: { children: ReactNode }) {
+function LayoutChat({ children }: { children: ReactNode }) {
   return (
     <>
       <SubHeader title="Chat" />
@@ -15,5 +15,14 @@ export default function Layout({ children }: { children: ReactNode }) {
         {children}
       </div>
     </>
+  );
+}
+
+export default function Layout({ children }: { children: ReactNode }) {
+  return (
+    // You could have a loading skeleton as the `fallback` too
+    <Suspense>
+      <LayoutChat>{children}</LayoutChat>
+    </Suspense>
   );
 }

@@ -1,10 +1,8 @@
 "use client";
 
-import React, { useState } from "react"; 
+import React from "react"; 
 import { FaSearch } from 'react-icons/fa';
-import { Input } from '@/components/ui/input'; // تأكد من أن لديك مكون Input في المشروع
-import Image from "next/image";
-import date from '../../../../imgs/image (31).png'; // تأكد من مسار الصورة
+import { Input } from '@/components/ui/input'; 
 import { Bar } from "react-chartjs-2";
 import Link from 'next/link';
 import {
@@ -68,9 +66,6 @@ const products = [
 ];
 
 function Advertisements() {
-  const [calendarOpen, setCalendarOpen] = useState(false);
-
- 
 
   return (
     <div>
