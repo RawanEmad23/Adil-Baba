@@ -46,7 +46,7 @@ export default function Orders() {
       <div className="container mx-auto">
      
       <div className="flex justify-between items-center mb-8 flex-col sm:flex-row">
-  <h1 className="text-2xl font-semibold">Products Inventory</h1>
+  <h1 className="text-2xl font-semibold">Orders</h1>
 
   <div className="flex flex-col sm:flex-row gap-4 sm:items-center w-full sm:w-auto">
     <div className="relative w-full sm:w-[140px] lg:w-64">
@@ -58,7 +58,7 @@ export default function Orders() {
     </div>
     <Link href='/dashboard/Management/add'>
               <button className="w-full sm:w-[136px] h-[40px] bg-[#f3b852] rounded-2xl text-white font-bold flex justify-center items-center">
-                + New Admin
+                + New Order
               </button>
             </Link>
 
