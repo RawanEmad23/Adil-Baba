@@ -34,11 +34,11 @@ export default function ProductsInventory() {
   };
 
   return (
-    <div className="p-4 bg-gray-100 min-h-screen">
+    <div className="p-4 min-h-screen">
       <div className="container mx-auto">
 
       <div className="flex justify-between items-center mb-8 flex-col sm:flex-row">
-  <h1 className="text-2xl font-semibold">Shipping</h1>
+  <h1 className="text-2xl font-semibold">Management</h1>
 
   <div className="flex flex-col sm:flex-row gap-4 sm:items-center w-full sm:w-auto">
     <div className="relative w-full sm:w-[140px] lg:w-64">
