@@ -77,7 +77,7 @@ export default function Branches() {
   };
 
   return (
-    <div className="p-4 bg-gray-100 min-h-screen mt-16">
+    <div className="p-4  min-h-screen mt-16">
       <div className="container mx-auto">
       
         <div className="flex justify-between items-center mb-8 flex-col sm:flex-row">
@@ -93,7 +93,7 @@ export default function Branches() {
     </div>
     <Link href='/dashboard/Management/add'>
               <button className="w-full sm:w-[136px] h-[40px] bg-[#f3b852] rounded-2xl text-white font-bold flex justify-center items-center">
-                + New Branches
+                + New Branche
               </button>
             </Link>
 
