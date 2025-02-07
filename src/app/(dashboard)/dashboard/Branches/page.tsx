@@ -77,10 +77,10 @@ export default function Branches() {
   };
 
   return (
-    <div className="p-4  min-h-screen mt-16">
+    <div className="p-4  min-h-screen ">
       <div className="container mx-auto">
       
-        <div className="flex justify-between items-center mb-8 flex-col sm:flex-row">
+        <div className="flex justify-between items-center  mb-8 flex-col sm:flex-row">
   <h1 className="text-2xl font-semibold">Branches</h1>
 
   <div className="flex flex-col sm:flex-row gap-4 sm:items-center w-full sm:w-auto">
