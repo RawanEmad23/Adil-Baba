@@ -68,7 +68,7 @@ export default function Orders() {
         <div className="overflow-x-auto bg-white shadow-md rounded-lg">
           <table className="min-w-full border border-gray-200 text-center">
             <thead>
-              <tr className="border-b bg-gray-100">
+              <tr className="border-b ">
                 <th
                   colSpan={3}
                   className="py-4 text-orange-500 font-semibold relative"
