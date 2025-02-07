@@ -87,7 +87,7 @@ function Reports() {
     <div>
    
 <div className="flex justify-between items-center mb-8 flex-col sm:flex-row">
-  <h1 className="text-2xl font-semibold">Advertisements</h1>
+  <h1 className="text-2xl font-semibold">Reborts</h1>
 
   <div className="flex flex-col sm:flex-row gap-4 sm:items-center w-full sm:w-auto">
     <div className="relative w-full sm:w-[140px] lg:w-64">
@@ -99,14 +99,14 @@ function Reports() {
     </div>
     <Link href='/dashboard/Management/add'>
               <button className="w-full sm:w-[136px] h-[40px] bg-[#f3b852] rounded-2xl text-white font-bold flex justify-center items-center">
-                + New Admin
+                + New Rebort
               </button>
             </Link>
 
   </div>
 </div>
 
-      <div className="flex flex-col gap-6 p-4 bg-gray-100 min-h-screen">
+      <div className="flex flex-col gap-6 p-4  min-h-screen">
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex-1 grid grid-cols-1 gap-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
